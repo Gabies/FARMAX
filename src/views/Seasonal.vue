@@ -52,8 +52,8 @@ import Axios from 'axios'
 export default {  
     data(){
         return {
-            months: "April",
-            days:[1,2,3,4,5],
+            // months: "April",
+            // days:[1,2,3,4,5],
             products:[
                 {id:1,title:"PRODUCT",description:"Lorem LoremLoremLoremLorem"},
                 {id:2,title:"PRODUCT",description:"Lorem LoremLoremLoremLorem"},
