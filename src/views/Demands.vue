@@ -15,21 +15,12 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
+                        <tr v-for="prod in products" :key="prod.id">
+                            <td>{{prod.title}}</td>
+                            <td>150</td>
+                            <td>${{prod.price}}</td>
                         </tr>
-                        <tr>
-                            <td>Alan</td>
-                            <td>Jellybean</td>
-                            <td>$3.76</td>
-                        </tr>
-                        <tr>
-                            <td>Jonathan</td>
-                            <td>Lollipop</td>
-                            <td>$7.00</td>
-                        </tr>
+                        
                     </tbody>
                 </table>
                 
@@ -40,6 +31,8 @@
                 <bar-chart
                                     id="donut"
                                     :data="barData"
+                                    :xkey="xkeys"
+                                    :ykeys="ykeys"
                                     barColors='[ "#FF6384", "#36A2EB", "#FFCE56" ]'
                                     resize="true">
                 </bar-chart>
@@ -58,19 +51,28 @@ export default {
             months: "April",
             days:[1,2,3,4,5,6,7,8,9,10],
             products:[
-                {id:1,title:"PRODUCT",description:"Lorem LoremLoremLoremLorem"},
-                {id:2,title:"PRODUCT",description:"Lorem LoremLoremLoremLorem"},
-                {id:3,title:"PRODUCT",description:"Lorem LoremLoremLoremLorem"},
-                {id:4,title:"PRODUCT",description:"Lorem LoremLoremLoremLorem"}
+                {id:1,title:"PRODUCT1",description:"Lorem LoremLoremLoremLorem",price:300},
+                {id:2,title:"PRODUCT2",description:"Lorem LoremLoremLoremLorem",price:100},
+                {id:3,title:"PRODUCT3",description:"Lorem LoremLoremLoremLorem",price:50},
+                {id:4,title:"PRODUCT4",description:"Lorem LoremLoremLoremLorem",price:20}
             ],
             barData: [
-                {  value: 300 },
-                {  value: 50 },
-                { value: 100 }
+                {label:'Product1', value: 300 },
+                {label:'Product2', value: 50 },
+                {label:'Product3', value: 100 }
                 ],
+            ykeys: ['value'],
+            xkeys:'label'
         }
     },components:{
         BarChart
+    },
+    mounted(){
+        let products=[]
+        this.products.forEach(prod=>{
+            products.push({label:prod.title,value:prod.price})
+        })
+        this.barData=products
     }
     
 }
