@@ -2,7 +2,7 @@
 BetterAgricutlture
 This web app is meant to enhance the quality and quantity of agricultural prodcuts. The following are the major features 
 
-1. Farmers will be able to get prediction for what to produce based on emand to avoid excess production that goes to waste.
+1. Farmers will be able to get prediction for what to produce based on demand to avoid excess production that goes to waste.
       * Balance between Demand<---->Supply. Export Surplus production for different regions
       * On future work might include AI to predict future updates based on previous demand analysis in relation to seasonal products.
       
