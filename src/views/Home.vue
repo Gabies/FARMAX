@@ -6,9 +6,9 @@
         <span class="light-blue-text"> M A X</span>
     </h1>
     <router-link to="/seasonal" class="marginbtn btn-large">SEASONAL PLANS</router-link>
-    <router-link to="/demands" class="marginbtn btn-large">DEMANDS</router-link>
-    <router-link to="/customers" class="marginbtn btn-large">CUSTOMERS</router-link>
-    <router-link to="/map" class="marginbtn btn-large">INSECTS IN THE RANGE</router-link>
+    <router-link to="/demands" class="marginbtn btn-large">CUSTOMER DEMANDS</router-link>
+    <router-link to="/customers" class="marginbtn btn-large">SUPPLY</router-link>
+    <router-link to="/map" class="marginbtn btn-large">Danger IN THE RANGE</router-link>
     <!-- <div class="row">
       <div class="col s12 m6 l3">
         <div class="card blue-grey darken-1">
