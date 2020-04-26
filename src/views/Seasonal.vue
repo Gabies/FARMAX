@@ -8,6 +8,17 @@
                 <ul>
                     <li v-for="day in days" :key="day">DAY- {{day}}</li>
                 </ul>
+                <ul>
+                    <li v-for="weat in weather" :key="weat.date">
+                        <div class="white-text card blue-grey darken-1">
+                            <p>Date: {{weat.date}}</p>
+                            <p>Temperature: {{weat.temp}}</p>
+                            <p>Weather:{{weat.weather}}</p>
+                            
+                        </div>
+                       
+                    </li>
+                </ul>
                 
             </div>
 
@@ -53,7 +64,9 @@ export default {
                 lati: 0,
                 long:0
             },
-            api:"api.openweathermap.org/data/2.5/forecast"
+            api:"http://api.openweathermap.org/data/2.5/forecast?",
+            weather:[]
+            
         }
     },
     created(){
@@ -75,9 +88,22 @@ export default {
     methods:{
         async callApiWeather(lati,long){
             let api=this.api
-            let request=api+`?lat=${lati}&lon=${long}&appid =${apiweather}`
-             console.log(request)
+            let request=api+`lat=${lati}&lon=${long}&APPID=${apiweather}`
+            //  console.log(request)
         let resp=await Axios.get(request)
+            resp=resp.data.list
+            console.log(resp)
+            let newresp=[]
+            resp.forEach(element => {
+                newresp.push(
+                    {
+                        date:element.dt_txt,
+                        temp:element.main.temp,
+                        weather:element.weather[0].description
+                    })
+            });
+            this.weather=newresp
+
         }
     }
     
